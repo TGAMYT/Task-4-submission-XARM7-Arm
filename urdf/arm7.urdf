@@ -1,0 +1,58 @@
+<robot name="Xarm7">
+    <link name="base_link">
+        <visual>
+            <geometry>
+               <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="link_0">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://xarm7_description/meshes/link_base.stl" scale="1.0 1.0 1.0"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="link1">
+        <visual>
+        <origin xyz="0.0 0.0 0.23" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://xarm7_description/meshes/link1.stl" scale="1.0 1.0 1.0"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="link2">
+        <visual>
+        <origin xyz="0.15 0.16 0.23" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://xarm7_description/meshes/link2.stl" scale="1.0 1.0 1.0"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="base-base_link" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="link_0"/>
+    </joint>
+
+    <joint name="base_link-link1" type="revolute">
+        <origin xyz="0.0 0.0 0.043" rpy="0.0 0.0 0.0"/>
+        <parent link="link_0"/>
+        <child link="link1"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14" upper="3.14" effort="0" velocity="0"/>
+    </joint>
+
+    <joint name="link1-link2" type="revolute">
+        <origin xyz="0.15 0.16 0.23" rpy="0.0 0.0 0.0"/>
+        <parent link="link1"/>
+        <child link="link2"/>
+        <axis xyz="0.0 01 0.0"/>
+        <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0"/>
+    </joint>
+</robot>
