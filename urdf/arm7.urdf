@@ -96,12 +96,13 @@
         <child link="link_0"/> <!-- specifies the child link -->
     </joint>
 
-    <joint name="base_link-link1" type="revolute">
+    <joint name="base_link-link1" type="revolute"> 
         <origin xyz="0.0 0.0 0.037" rpy="0.0 0.0 0.0"/>
         <parent link="link_0"/>
         <child link="link1"/>
-        <axis xyz="0 0 1"/>
-        <limit lower="-3.14" upper="3.14" effort="0" velocity="0"/>
+         <axis xyz="0 0 1"/> <!--Used in revolute joints specifies the axis of rotation -->
+         <limit lower="-3.14" upper="3.14" effort="0" velocity="0"/> 
+         <!-- Used in revolute joints; This specifies the manner and limits by with the joint rotates -->
     </joint>
 
     <joint name="link1-link2" type="revolute">
