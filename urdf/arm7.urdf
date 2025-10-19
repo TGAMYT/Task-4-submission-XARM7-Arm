@@ -1,17 +1,19 @@
-<robot name="Xarm7">
-    <link name="base_link">
-        <visual>
-            <geometry>
-               <box size="0.01 0.01 0.01"/>
+ <robot name="Xarm7"> <!-- This encapsulate the entirety of the robot -->
+    <link name="base_link">  <!-- This specifies the link properties -->
+         <visual> <!-- This tag specifies the visual appearance of the link -->
+             <geometry> <!-- This link specifies the shape and size of the link  -->
+                <box size="0.01 0.01 0.01"/>  <!--This command creates a box in 3d space according to the values specified -->
             </geometry>
         </visual>
     </link>
 
     <link name="link_0">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+            <!-- The origin tag represents the position and rotation with respect to its parent link -->
             <geometry>
                 <mesh filename="package://xarm7_description/meshes/link_base.stl" scale="1.0 1.0 1.0"/>
+                <!-- This sources an already built mesh into the work space -->
             </geometry>
         </visual>
     </link>
@@ -88,10 +90,10 @@
         </visual>
     </link>
 
-    <joint name="base-base_link" type="fixed">
+     <joint name="base-base_link" type="fixed"> <!-- This specifies the properties of joints for 2 links  -->
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-        <parent link="base_link"/>
-        <child link="link_0"/>
+         <parent link="base_link"/> <!-- specifies the parent link -->
+        <child link="link_0"/> <!-- specifies the child link -->
     </joint>
 
     <joint name="base_link-link1" type="revolute">
